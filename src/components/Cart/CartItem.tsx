@@ -3,32 +3,56 @@ import { useDispatch } from "react-redux";
 
 import { CartItemData } from "../../models/data.model";
 import { cartActions } from "../../store/cart-slice";
-import { Avatar, Box, ButtonGroup, Button, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  ButtonGroup,
+  Button,
+  Typography,
+  IconButton,
+  Divider,
+} from "@mui/material";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const CartItem: React.FC<{ item: CartItemData }> = (props) => {
   const { id, image, title, amount, price } = props.item;
 
   const dispatch = useDispatch();
 
-const deleteFromCartHandler = () => {
+  const deleteFromCartHandler = () => {
     dispatch(cartActions.removeItemFromCart(id));
-}
-const addToCartHandler = () => {
+  };
+
+  const addToCartHandler = () => {
     const addCartItem = {
-        id,
-        title,
-        image,
-        amount,
-        price,
-      };
+      id,
+      title,
+      image,
+      amount,
+      price,
+    };
     dispatch(cartActions.addItemToCart(addCartItem));
-}
+  };
+
+  const deleteItemFromCartHandler = () => {
+    dispatch(cartActions.deleteItemTotalyFromCart(id));
+  }
 
   return (
     <React.Fragment>
+      <IconButton
+        size="large"
+        edge="start"
+        color="inherit"
+        aria-label="open cart drawer"
+        sx={{float: "right"}}
+        onClick={deleteItemFromCartHandler}
+      >
+        <DeleteForeverIcon />
+      </IconButton>
       <Box
         display="flex"
-        sx={{ pt: 2, pb: 2 }}
+        sx={{ m: 5 }}
         alignItems="center"
         justifyContent={"space-between"}
         gap={2}
@@ -39,11 +63,12 @@ const addToCartHandler = () => {
           <Typography>${price}</Typography>
           <Typography variant="h6">x{amount}</Typography>
           <ButtonGroup variant="outlined">
-            <Button onClick={addToCartHandler}>+</Button>
             <Button onClick={deleteFromCartHandler}>-</Button>
+            <Button onClick={addToCartHandler}>+</Button>
           </ButtonGroup>
         </Box>
       </Box>
+      <Divider />
     </React.Fragment>
   );
 };
