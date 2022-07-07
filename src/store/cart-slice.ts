@@ -56,6 +56,19 @@ const cartSlice = createSlice({
       state.totalPrice = updatedTotalAmount;
       state.totalAmount--;
     },
+    deleteItemTotalyFromCart(state: CartData, action: PayloadAction<number>) {
+      const productId = action.payload
+      const existingCartItemIndex = state.cartItems.findIndex(
+        (item) => item.id === productId
+      );
+      const existingItem = state.cartItems[existingCartItemIndex];
+      const updatedTotalAmount = state.totalPrice - existingItem.price*existingItem.amount;
+      const updatedItems = state.cartItems.filter((item) => item.id !== productId);
+     
+      state.cartItems = updatedItems;
+      state.totalPrice = updatedTotalAmount;
+      state.totalAmount = state.totalAmount - existingItem.amount
+    },
     /* replaceListItems(state, action) {
         state.items = action.payload.items;
         state.sortedList = action.payload.items;

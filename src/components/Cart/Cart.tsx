@@ -8,12 +8,19 @@ import { RootState } from "../../store";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Cart: React.FC<{}> = () => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
  
   /* const totalCartAmount: number = useSelector((state: RootState) => state.cart.totalAmount); */
   const cartData: CartData = useSelector((state: RootState) => state.cart);
   const totalCartAmount = cartData.totalAmount
   
+  const closeCartHandler = () => {
+    setIsOpen(false);
+  }
+
+  const openCartHandler = () => {
+    setIsOpen(true);
+  }
 
   return (
     <React.Fragment>
@@ -22,8 +29,7 @@ const Cart: React.FC<{}> = () => {
         edge="start"
         color="inherit"
         aria-label="open cart drawer"
-        onClick={() => setOpen(true)}
-       /*  sx={{ ...(open && { display: "none" }) }} */
+        onClick={openCartHandler}
       >
         <Badge badgeContent={totalCartAmount} color="error">
           <ShoppingCartIcon />
@@ -31,16 +37,16 @@ const Cart: React.FC<{}> = () => {
       </IconButton>
       <Drawer
         anchor="right"
-        open={open}
+        open={isOpen}
         PaperProps={{
           sx: {
             width: "30%",
             minWidth: 300,
           },
         }}
-        onClose={() => setOpen(false)}
+        onClose={closeCartHandler}
       >
-        <CartItems cartData={cartData} />
+        <CartItems cartData={cartData} onClose={closeCartHandler} />
       </Drawer>
     </React.Fragment>
   );
