@@ -1,27 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface CartItem {
-  id: number;
-  name: string;
-  amount: number;
-  price: number;
-}
-
-interface CartData {
-  cartItems: CartItem[];
-  totalAmount: number;
-}
+import { CartItemData, CartData } from "../models/data.model";
 
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
     cartItems: [],
+    totalPrice: 0,
     totalAmount: 0,
   },
 
   reducers: {
-    addItemToCart(state: CartData, action: PayloadAction<CartItem>) {
-      const updatedTotalAmount = state.totalAmount + action.payload.price;
+    addItemToCart(state: CartData, action: PayloadAction<CartItemData>) {
+      const updatedTotalAmount = state.totalPrice + action.payload.price;
       const productId = action.payload.id;
       const existingCartItemIndex = state.cartItems.findIndex(
         (item) => item.id === productId
@@ -40,7 +31,8 @@ const cartSlice = createSlice({
         updatedItems = [action.payload, ...state.cartItems];
       }
       state.cartItems = updatedItems;
-      state.totalAmount = updatedTotalAmount;
+      state.totalPrice = updatedTotalAmount;
+      state.totalAmount++;
     },
     removeItemFromCart(state: CartData, action: PayloadAction<number>) {
       const productId = action.payload
@@ -48,7 +40,7 @@ const cartSlice = createSlice({
         (item) => item.id === productId
       );
       const existingItem = state.cartItems[existingCartItemIndex];
-      const updatedTotalAmount = state.totalAmount - existingItem.price;
+      const updatedTotalAmount = state.totalPrice - existingItem.price;
       let updatedItems;
       if (existingItem.amount === 1) {
         updatedItems = state.cartItems.filter((item) => item.id !== productId);
@@ -61,7 +53,8 @@ const cartSlice = createSlice({
         updatedItems[existingCartItemIndex] = updatedItem;
       }
       state.cartItems = updatedItems;
-      state.totalAmount = updatedTotalAmount;
+      state.totalPrice = updatedTotalAmount;
+      state.totalAmount--;
     },
     /* replaceListItems(state, action) {
         state.items = action.payload.items;

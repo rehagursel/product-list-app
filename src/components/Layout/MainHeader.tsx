@@ -1,25 +1,20 @@
-import { Box, AppBar, Toolbar, Typography, IconButton, Badge } from "@mui/material";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Cart from "../Cart/Cart";
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 
-const Mainheader = () => {
+const Mainheader: React.FC<{}> = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             MyStore
           </Typography>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="cart"
-            sx={{ mr: 2 }}
-          >
-            <Badge badgeContent={1} color="error">
-            <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
+          <Cart />
         </Toolbar>
       </AppBar>
     </Box>
