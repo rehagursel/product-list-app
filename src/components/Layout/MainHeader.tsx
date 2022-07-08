@@ -1,10 +1,5 @@
 import Cart from "../Cart/Cart";
-import {
-  Box,
-  AppBar,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Box, AppBar, Toolbar, Typography } from "@mui/material";
 
 const Mainheader: React.FC<{}> = () => {
   return (

@@ -1,4 +1,4 @@
-import { CartData } from "../../models/data.model";
+import { CartData } from "../../models/data.models";
 import { Box, Typography, Divider, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CartItem from "./CartItem";

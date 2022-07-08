@@ -1,26 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-import CartItems from "./CartItems"
+import CartItems from "./CartItems";
 import { Drawer, IconButton, Badge } from "@mui/material";
-import { CartData } from "../../models/data.model";
+import { CartData } from "../../models/data.models";
 import { RootState } from "../../store";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Cart: React.FC<{}> = () => {
   const [isOpen, setIsOpen] = useState(false);
- 
-  /* const totalCartAmount: number = useSelector((state: RootState) => state.cart.totalAmount); */
+
   const cartData: CartData = useSelector((state: RootState) => state.cart);
-  const totalCartAmount = cartData.totalAmount
-  
+  const totalCartAmount = cartData.totalAmount;
+
+  useEffect(() => {
+    if (totalCartAmount === 0) {
+      setIsOpen(false);
+    }
+  }, [totalCartAmount]);
+
   const closeCartHandler = () => {
     setIsOpen(false);
-  }
+  };
 
   const openCartHandler = () => {
     setIsOpen(true);
-  }
+  };
 
   return (
     <React.Fragment>

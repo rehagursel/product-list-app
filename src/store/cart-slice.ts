@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { CartItemData, CartData } from "../models/data.model";
+import { CartItemData, CartData } from "../models/data.models";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -69,21 +69,6 @@ const cartSlice = createSlice({
       state.totalPrice = updatedTotalAmount;
       state.totalAmount = state.totalAmount - existingItem.amount
     },
-    /* replaceListItems(state, action) {
-        state.items = action.payload.items;
-        state.sortedList = action.payload.items;
-      }, */
-    /*  sortListItems(state, action) {
-        if (action.payload === "All Products") {
-          state.sortedList = [...state.items];
-        } else {
-          const category = action.payload;
-          const sortedItemsList = state.items.filter(
-            (product) => product.category === category
-          );
-          state.sortedList = sortedItemsList;
-        }
-      }, */
   },
 });
 

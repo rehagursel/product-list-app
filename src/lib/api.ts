@@ -1,4 +1,4 @@
-import { ProductsData } from "../models/data.model"
+import { ProductsData } from "../models/data.models"
 
 const MOCK_DATA_URL = 'https://fakestoreapi.com';
 

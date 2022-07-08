@@ -1,6 +1,6 @@
 import { useReducer, useCallback  } from "react";
 
-import { ProductsData } from "../models/data.model";
+import { ProductsData } from "../models/data.models";
 
 interface HttpState {
   data: ProductsData[] | null;

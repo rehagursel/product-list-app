@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { CartItemData } from "../../models/data.model";
+import { CartItemData } from "../../models/data.models";
 import { cartActions } from "../../store/cart-slice";
 import {
   Avatar,
@@ -12,7 +12,7 @@ import {
   IconButton,
   Divider,
 } from "@mui/material";
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 const CartItem: React.FC<{ item: CartItemData }> = (props) => {
   const { id, image, title, amount, price } = props.item;
@@ -36,7 +36,7 @@ const CartItem: React.FC<{ item: CartItemData }> = (props) => {
 
   const deleteItemFromCartHandler = () => {
     dispatch(cartActions.deleteItemTotalyFromCart(id));
-  }
+  };
 
   return (
     <React.Fragment>
@@ -45,7 +45,7 @@ const CartItem: React.FC<{ item: CartItemData }> = (props) => {
         edge="start"
         color="inherit"
         aria-label="open cart drawer"
-        sx={{float: "right"}}
+        sx={{ float: "right" }}
         onClick={deleteItemFromCartHandler}
       >
         <DeleteForeverIcon />

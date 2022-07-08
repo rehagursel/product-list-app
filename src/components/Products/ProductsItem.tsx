@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { cartActions } from "../../store/cart-slice";
-/* import { ProductsData } from "../../models/data.model"; */
-import { Box, Avatar, Typography, Button, /* Card, */ Grid } from "@mui/material";
+import { Box, Avatar, Typography, Button, Grid } from "@mui/material";
 
 interface Props {
   image: string;
@@ -39,12 +38,12 @@ const ProductsItem: React.FC<Props> = (props) => {
       item
       xs={12}
       sm={6}
-      md={4}
-      lg={3}
-      /* border="1px solid black" */
+      lg={4}
+      xl={3}
       display="flex"
       flexDirection="column"
       alignItems="center"
+      sx={{ p: 3 }}
     >
       <Box
         display="flex"
@@ -52,11 +51,11 @@ const ProductsItem: React.FC<Props> = (props) => {
         alignItems="center"
         justifyContent="space-between"
         sx={{
-          width: { ...{ xs: 280, sm: 250, md: 250, lg: 280 } },
-          height: 400,
-          pt: 3,
+          width: { ...{ xs: 250, sm: 170, md: 250, lg: 280 } },
+          height: { ...{ xs: 350, md: 400 } },
+          pt: 2,
           pb: 1,
-          px: 3,
+          px: 2,
           borderRadius: "20px",
           border: ".5px solid",
           borderColor: "primary.main",
@@ -64,32 +63,36 @@ const ProductsItem: React.FC<Props> = (props) => {
         onMouseEnter={addButtonShowHandler}
         onMouseLeave={addButtonShowHandler}
       >
-        <Avatar
-          src={image}
-          variant="square"
-          sx={{
-            width: { ...{ xs: 150, md: 180, lg: 200 } },
-            height: { ...{ xs: 150, md: 180, lg: 200 } },
-          }}
-        />
-        <Typography
-          mt={3}
-          textAlign="center"
-          border="none"
-          sx={{
-            /*   display: '-webkit-box', */
-            overflow: "auto",
-            /*        WebkitBoxOrient: 'vertical',
-        WebkitLineClamp: 3, */
-          }}
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="space-between"
+          sx={{ height: { ...{ xs: "88%", sm: "85%", md: "90%" } } }}
         >
-          {" "}
-          {title}
-        </Typography>
-        <Typography mt={1}>${price}</Typography>
+          <Avatar
+            src={image}
+            variant="square"
+            sx={{
+              width: { ...{ xs: 150, sm: 120, md: 180, lg: 200 } },
+              height: { ...{ xs: 150, sm: 120, md: 180, lg: 200 } },
+            }}
+          />
+          <Typography
+            mt={2}
+            textAlign="center"
+            border="none"
+            sx={{
+              overflow: "auto",
+            }}
+          >
+            {title}
+          </Typography>
+          <Typography mt={1}>${price}</Typography>
+        </Box>
         {addButtonOpen && (
           <Button variant="outlined" onClick={addToCartHandler}>
-            ADD TO CART
+            Add to Cart
           </Button>
         )}
       </Box>
