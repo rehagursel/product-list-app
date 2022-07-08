@@ -66,7 +66,8 @@ const Categories: React.FC = () => {
         sx={{
           display: "flex",
           p: 2,
-          border: "2px solid yellow",
+          pb: 5,
+          border: "2px solid",
           borderColor: "primary.main",
         }}
       >
@@ -77,7 +78,7 @@ const Categories: React.FC = () => {
               display="flex"
               justifyContent="space-between"
               alignItems="center"
-              sx={{ mt: 2, width: "90%" }}
+              sx={{ mt: 1, width: "90%" }}
               key={uuid()}
             >
               <FormControlLabel
