@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { ProductsData } from "../../models/data.models";
 import { RootState } from "../../store";
-import { Box, Grid, Typography, Skeleton, Stack } from "@mui/material";
+import { Box, Grid, Typography, Skeleton } from "@mui/material";
 import ProductsItem from "./ProductsItem";
 
 interface Props {
@@ -60,13 +60,14 @@ const Products: React.FC<Props> = (props) => {
               >
                 <Skeleton
                   variant="rectangular"
+                  animation="wave"
                   sx={{ width: { ...{ xs: 150, md: 200 } } }}
                   height={200}
                 />
                 <Skeleton width="100%" animation="wave" />
                 <Skeleton width="100%" animation="wave" />
                 <Skeleton width="100%" animation="wave" />
-                <Skeleton width="100%" />
+                <Skeleton width="100%" animation="wave" />
               </Box>
             </Box>
           </Grid>

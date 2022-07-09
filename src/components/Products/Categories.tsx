@@ -9,9 +9,10 @@ import {
   FormControlLabel,
   Checkbox,
   FormControl,
-  FormLabel,
-  FormGroup,
   Typography,
+  InputLabel,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import { v4 as uuid } from "uuid";
 
@@ -61,42 +62,52 @@ const Categories: React.FC = () => {
     }
   };
   return (
-    <Box>
-      <FormControl
+      <Box
+        display="flex"
+        justifyContent="center"
         sx={{
-          display: "flex",
-          p: 2,
-          pb: 5,
+          p: 3,
           border: "2px solid",
           borderColor: "primary.main",
         }}
       >
-        <FormLabel>Categories</FormLabel>
-        <FormGroup sx={{ mt: 3 }}>
-          {categoriesList.map((categoryItem) => (
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              sx={{ mt: 1, width: "90%" }}
-              key={uuid()}
-            >
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    value={categoryItem.category}
-                    checked={checkedCategories.includes(categoryItem.category)}
-                    onChange={categoryChangeHandler}
+        <FormControl fullWidth>
+          <InputLabel htmlFor="select">Categories</InputLabel>
+          <Select
+            labelId="select-label"
+            id="select"
+            label="Categories"
+            sx={{ width: "95%" }}
+          >
+            {categoriesList.map((categoryItem) => (
+              <MenuItem>
+                <Box
+                  component="form"
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  sx={{ mt: 1, ml: 1, width: "100%" }}
+                  key={uuid()}
+                >
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        value={categoryItem.category}
+                        checked={checkedCategories.includes(
+                          categoryItem.category
+                        )}
+                        onChange={categoryChangeHandler}
+                      />
+                    }
+                    label={categoryItem.category}
                   />
-                }
-                label={categoryItem.category}
-              />
-              <Typography>({categoryItem.amount})</Typography>
-            </Box>
-          ))}
-        </FormGroup>
-      </FormControl>
-    </Box>
+                  <Typography>({categoryItem.amount})</Typography>
+                </Box>
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
   );
 };
 
