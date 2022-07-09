@@ -11,8 +11,7 @@ import {
   FormControl,
   Typography,
   InputLabel,
-  Select,
-  MenuItem,
+  Select
 } from "@mui/material";
 import { v4 as uuid } from "uuid";
 
@@ -65,7 +64,7 @@ const Categories: React.FC = () => {
     <Box
       justifyContent="center"
       sx={{
-        p: 3,
+        p: {sm: 3},
         border: "2px solid",
         borderColor: { xs: "transparent", sm: "primary.main" },
         display: "flex",
@@ -80,13 +79,13 @@ const Categories: React.FC = () => {
           sx={{ width: "100%" }}
         >
           {categoriesList.map((categoryItem) => (
-            <MenuItem>
+            
               <Box
                 component="form"
                 display="flex"
-                justifyContent="space-between"
+                /* justifyContent="space-between" */
                 alignItems="center"
-                sx={{ mt: 1, ml: 1, width: "100%" }}
+                sx={{ mt: 1, px: 2, width: {xs: "100%", sm: 220} }}
                 key={uuid()}
               >
                 <FormControlLabel
@@ -100,10 +99,17 @@ const Categories: React.FC = () => {
                     />
                   }
                   label={categoryItem.category}
+                  sx={{ border: "1px red solid", width: "100%" }}
                 />
-                <Typography>({categoryItem.amount})</Typography>
+                <Typography>
+                  (
+                  <Box display="inline" color="primary.main">
+                    {categoryItem.amount}
+                  </Box>
+                  )
+                </Typography>
               </Box>
-            </MenuItem>
+           
           ))}
         </Select>
       </FormControl>

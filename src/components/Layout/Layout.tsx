@@ -23,7 +23,7 @@ const Layout: React.FC<LayoutProps> = (props) => {
         <Box
           display={{ sm: "flex" }}
           justifyContent="space-between"
-          sx={{ width: "100%", my: 15 }}
+          sx={{ width: "100%", my: {xs: 10, sm:12} }}
         >
           <Box width={{ sm: "35%", md: "25%", lg: "19%" }}>
             <Categories />

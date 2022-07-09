@@ -40,8 +40,9 @@ const SearchBar: React.FC = () => {
         width: "100%",
         border:  "2px solid",
         borderColor: { xs: "transparent", sm: "primary.main" },
-        mb: 4,
-        p: 3,
+        mb: {xs:2, sm: 4},
+        p: {sm: 3},
+        mt: {xs: 2, sm: 0}
       }}
     >
       <Box
