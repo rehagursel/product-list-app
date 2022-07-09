@@ -24,7 +24,7 @@ interface Category {
 const Categories: React.FC = () => {
   const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
   const productsList: ProductsData[] = useSelector(
-    (state: RootState) => state.list.items
+    (state: RootState) => state.list.sortedList
   );
   const dispatch = useDispatch();
 
