@@ -83,7 +83,6 @@ const Categories: React.FC = () => {
               <Box
                 component="form"
                 display="flex"
-                /* justifyContent="space-between" */
                 alignItems="center"
                 sx={{ mt: 1, px: 2, width: {xs: "100%", sm: 220} }}
                 key={uuid()}
@@ -99,7 +98,7 @@ const Categories: React.FC = () => {
                     />
                   }
                   label={categoryItem.category}
-                  sx={{ border: "1px red solid", width: "100%" }}
+                  sx={{ width: "100%" }}
                 />
                 <Typography>
                   (
