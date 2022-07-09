@@ -40,9 +40,9 @@ const SearchBar = () => {
         width: "100%",
         border: "2px solid",
         borderColor: { xs: "transparent", lg: "primary.main" },
-        mb: { xs: 2, sm: 4 },
-        p: { sm: 3 },
-        mt: { xs: 2, sm: 0 },
+        mb: { xs: 2, md: 4 },
+        p: { md: 3 },
+        mt: { xs: 2, md: 0 },
       }}
     >
       <Box

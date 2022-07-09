@@ -64,7 +64,7 @@ const Categories = () => {
     <Box
       justifyContent="center"
       sx={{
-        p: {sm: 3},
+        p: {md: 3},
         border: "2px solid",
         borderColor: { xs: "transparent", lg: "primary.main" },
         display: "flex",

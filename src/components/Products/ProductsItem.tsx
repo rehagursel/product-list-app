@@ -51,7 +51,7 @@ const ProductsItem = (props: Props) => {
         alignItems="center"
         justifyContent="space-between"
         sx={{
-          width: { ...{ xs: 250, sm: 280 } },
+          width: { ...{ xs: 250, sm: 265, md:280} },
           height: { ...{ xs: 350, sm: 400 } },
           pt: 2,
           pb: 1,
