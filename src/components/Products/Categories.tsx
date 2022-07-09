@@ -20,7 +20,7 @@ interface Category {
   amount: number;
 }
 
-const Categories: React.FC = () => {
+const Categories = () => {
   const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
   const productsList: ProductsData[] = useSelector(
     (state: RootState) => state.list.sortedList
@@ -66,7 +66,7 @@ const Categories: React.FC = () => {
       sx={{
         p: {sm: 3},
         border: "2px solid",
-        borderColor: { xs: "transparent", sm: "primary.main" },
+        borderColor: { xs: "transparent", lg: "primary.main" },
         display: "flex",
       }}
     >
@@ -84,7 +84,7 @@ const Categories: React.FC = () => {
                 component="form"
                 display="flex"
                 alignItems="center"
-                sx={{ mt: 1, px: 2, width: {xs: "100%", sm: 220} }}
+                sx={{ mt: 1, px: 2, width: {xs: "100%",lg: 220} }}
                 key={uuid()}
               >
                 <FormControlLabel

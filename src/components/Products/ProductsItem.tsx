@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { cartActions } from "../../store/cart-slice";
@@ -11,7 +11,7 @@ interface Props {
   id: number;
 }
 
-const ProductsItem: React.FC<Props> = (props) => {
+const ProductsItem = (props: Props) => {
   const { image, title, price, id } = props;
   const [addButtonOpen, setAddButtonOpen] = useState<Boolean>(false);
 
@@ -38,12 +38,12 @@ const ProductsItem: React.FC<Props> = (props) => {
       item
       xs={12}
       sm={6}
+      md={4}
       lg={4}
       xl={3}
       display="flex"
       flexDirection="column"
       alignItems="center"
-      sx={{ p: 3 }}
     >
       <Box
         display="flex"
@@ -51,8 +51,8 @@ const ProductsItem: React.FC<Props> = (props) => {
         alignItems="center"
         justifyContent="space-between"
         sx={{
-          width: { ...{ xs: 250, sm: 170, md: 250, lg: 280 } },
-          height: { ...{ xs: 350, md: 400 } },
+          width: { ...{ xs: 250, sm: 280 } },
+          height: { ...{ xs: 350, sm: 400 } },
           pt: 2,
           pb: 1,
           px: 2,

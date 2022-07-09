@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
 
 import { listActions } from "../../store/list-slice";
@@ -12,7 +12,7 @@ import {
   OutlinedInput,
 } from "@mui/material";
 
-const SearchBar: React.FC = () => {
+const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const dispatch = useDispatch();
 
@@ -38,11 +38,11 @@ const SearchBar: React.FC = () => {
       alignItems="center"
       sx={{
         width: "100%",
-        border:  "2px solid",
-        borderColor: { xs: "transparent", sm: "primary.main" },
-        mb: {xs:2, sm: 4},
-        p: {sm: 3},
-        mt: {xs: 2, sm: 0}
+        border: "2px solid",
+        borderColor: { xs: "transparent", lg: "primary.main" },
+        mb: { xs: 2, sm: 4 },
+        p: { sm: 3 },
+        mt: { xs: 2, sm: 0 },
       }}
     >
       <Box

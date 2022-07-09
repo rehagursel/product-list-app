@@ -14,7 +14,11 @@ import {
 } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
-const CartItem: React.FC<{ item: CartItemData }> = (props) => {
+interface Props {
+  item: CartItemData;
+}
+
+const CartItem = (props: Props) => {
   const { id, image, title, amount, price } = props.item;
 
   const dispatch = useDispatch();

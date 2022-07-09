@@ -41,7 +41,7 @@ export const getFilteredList = (
   } else if (filterParams.queryParam.length < 1) {
     filteredWithQueryArr = [...filteredWithCategoryArr];
   } else {
-    filteredWithQueryArr = [...filteredWithCategoryArr]
+    filteredWithQueryArr = [...filteredWithCategoryArr];
   }
 
   if (filteredWithQueryArr.length === 0) {

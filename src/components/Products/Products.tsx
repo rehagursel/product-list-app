@@ -5,6 +5,7 @@ import { ProductsData } from "../../models/data.models";
 import { RootState } from "../../store";
 import { Box, Grid, Typography, Skeleton } from "@mui/material";
 import ProductsItem from "./ProductsItem";
+import { v4 as uuid } from "uuid";
 
 interface Props {
   error: string | null;
@@ -21,19 +22,19 @@ const Products: React.FC<Props> = (props) => {
 
   if (status === "pending") {
     return (
-      <Grid container textAlign="center">
-        {skeletonAmount.map((item, index) => (
+      <Grid container spacing={{ xs: 2, md: 3 }} textAlign="center">
+        {skeletonAmount.map(() => (
           <Grid
             item
-            sm={12}
-            md={6}
-            lg={4}
+            xs={12}
+            sm={6}
+            md={4}
             xl={3}
             display="flex"
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
-            sx={{ p: 3, ml: { ...{ xs: 10, md: 0 } } }}
+            key={uuid()}
           >
             <Box
               display="flex"
@@ -41,8 +42,8 @@ const Products: React.FC<Props> = (props) => {
               alignItems="center"
               justifyContent="space-between"
               sx={{
-                width: { ...{ xs: 250, sm: 240, md: 250, lg: 280 } },
-                height: { ...{ md: 400 } },
+                width: { ...{ xs: 250, sm: 280 } },
+                height: { ...{ xs: 350, sm: 400 } },
                 pt: 2,
                 pb: 1,
                 px: 2,
@@ -78,7 +79,7 @@ const Products: React.FC<Props> = (props) => {
 
   if (status === "completed" && !!error) {
     return (
-      <Box display="flex" sx={{ mt: 15 }}>
+      <Box display="flex" justifyContent="center" sx={{ mt: 15 }}>
         <Typography>{error}</Typography>
       </Box>
     );
@@ -86,8 +87,8 @@ const Products: React.FC<Props> = (props) => {
 
   if (!renderList || renderList.length === 0) {
     return (
-      <Box display="flex" sx={{ mt: 15 }}>
-        <Typography sx={{ m: "50px auto" }}>There are no product</Typography>
+      <Box display="flex" justifyContent="center" sx={{ mt: 15 }}>
+        <Typography>There are no product</Typography>
       </Box>
     );
   }

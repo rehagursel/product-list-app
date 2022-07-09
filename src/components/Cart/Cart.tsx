@@ -7,7 +7,7 @@ import { CartData } from "../../models/data.models";
 import { RootState } from "../../store";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-const Cart: React.FC<{}> = () => {
+const Cart: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const cartData: CartData = useSelector((state: RootState) => state.cart);
