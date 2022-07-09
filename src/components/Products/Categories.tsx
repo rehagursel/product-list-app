@@ -62,52 +62,52 @@ const Categories: React.FC = () => {
     }
   };
   return (
-      <Box
-        display="flex"
-        justifyContent="center"
-        sx={{
-          p: 3,
-          border: "2px solid",
-          borderColor: "primary.main",
-        }}
-      >
-        <FormControl fullWidth>
-          <InputLabel htmlFor="select">Categories</InputLabel>
-          <Select
-            labelId="select-label"
-            id="select"
-            label="Categories"
-            sx={{ width: "95%" }}
-          >
-            {categoriesList.map((categoryItem) => (
-              <MenuItem>
-                <Box
-                  component="form"
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  sx={{ mt: 1, ml: 1, width: "100%" }}
-                  key={uuid()}
-                >
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        value={categoryItem.category}
-                        checked={checkedCategories.includes(
-                          categoryItem.category
-                        )}
-                        onChange={categoryChangeHandler}
-                      />
-                    }
-                    label={categoryItem.category}
-                  />
-                  <Typography>({categoryItem.amount})</Typography>
-                </Box>
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </Box>
+    <Box
+      justifyContent="center"
+      sx={{
+        p: 3,
+        border: "2px solid",
+        borderColor: { xs: "transparent", sm: "primary.main" },
+        display: "flex",
+      }}
+    >
+      <FormControl fullWidth>
+        <InputLabel htmlFor="select">Categories</InputLabel>
+        <Select
+          labelId="select-label"
+          id="select"
+          label="Categories"
+          sx={{ width: "100%" }}
+        >
+          {categoriesList.map((categoryItem) => (
+            <MenuItem>
+              <Box
+                component="form"
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                sx={{ mt: 1, ml: 1, width: "100%" }}
+                key={uuid()}
+              >
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      value={categoryItem.category}
+                      checked={checkedCategories.includes(
+                        categoryItem.category
+                      )}
+                      onChange={categoryChangeHandler}
+                    />
+                  }
+                  label={categoryItem.category}
+                />
+                <Typography>({categoryItem.amount})</Typography>
+              </Box>
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </Box>
   );
 };
 

@@ -38,8 +38,8 @@ const SearchBar: React.FC = () => {
       alignItems="center"
       sx={{
         width: "100%",
-        border: "2px solid",
-        borderColor: "primary.main",
+        border:  "2px solid",
+        borderColor: { xs: "transparent", sm: "primary.main" },
         mb: 4,
         p: 3,
       }}
