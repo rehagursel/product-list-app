@@ -7,7 +7,7 @@ export const getAllProducts = async (): Promise<ProductsData[]> => {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || 'Could not fetch products.');
+    throw new Error(data.message || 'Products could not load!');
   }
 
   return data;

@@ -8,9 +8,10 @@ const cartSlice = createSlice({
     cartItems: [],
     totalPrice: 0,
     totalAmount: 0,
-  },
+  } as CartData,
 
   reducers: {
+    //add selected item to cart list and update totalPrice and totalAmount
     addItemToCart(state: CartData, action: PayloadAction<CartItemData>) {
       const updatedTotalAmount = state.totalPrice + action.payload.price;
       const productId = action.payload.id;
@@ -34,6 +35,7 @@ const cartSlice = createSlice({
       state.totalPrice = updatedTotalAmount;
       state.totalAmount++;
     },
+    //remove item from cart one by one and update totalPrice and totalAmount
     removeItemFromCart(state: CartData, action: PayloadAction<number>) {
       const productId = action.payload
       const existingCartItemIndex = state.cartItems.findIndex(
@@ -56,6 +58,7 @@ const cartSlice = createSlice({
       state.totalPrice = updatedTotalAmount;
       state.totalAmount--;
     },
+    //remove all selected item from cart and update totalPrice and totalAmount
     deleteItemTotalyFromCart(state: CartData, action: PayloadAction<number>) {
       const productId = action.payload
       const existingCartItemIndex = state.cartItems.findIndex(

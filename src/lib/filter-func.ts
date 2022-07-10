@@ -18,6 +18,7 @@ export const getFilteredList = (
   let filteredWithCategoryArr: ProductsData[] | null = [];
   let filteredWithQueryArr: ProductsData[] | null = [];
   let lastArr: ProductsData[] | null = [];
+
   if (filterParams.categoryParams.length > 0) {
     const filteredArr = tempArr.filter((product) =>
       filterParams.categoryParams.includes(product.category)
@@ -38,11 +39,9 @@ export const getFilteredList = (
         .includes(filterParams.queryParam.toUpperCase())
     );
     filteredWithQueryArr = filteredArrSecond;
-  } else if (filterParams.queryParam.length < 1) {
+  } else if (filterParams.queryParam.length <= 1) {
     filteredWithQueryArr = [...filteredWithCategoryArr];
-  } else {
-    filteredWithQueryArr = [...filteredWithCategoryArr];
-  }
+  } 
 
   if (filteredWithQueryArr.length === 0) {
     return null;

@@ -20,6 +20,7 @@ const App: React.FC = () => {
     sendRequest();
   }, [sendRequest]);
 
+  //load items to redux store
   useEffect(() => {
     if (loadedProducts) {
       dispatch(listActions.loadItems(loadedProducts));

@@ -28,14 +28,14 @@ const CartItem = (props: Props) => {
   };
 
   const addToCartHandler = () => {
-    const addCartItem = {
+    const newCartItem = {
       id,
       title,
       image,
       amount,
       price,
     };
-    dispatch(cartActions.addItemToCart(addCartItem));
+    dispatch(cartActions.addItemToCart(newCartItem));
   };
 
   const deleteItemFromCartHandler = () => {

@@ -19,7 +19,7 @@ const Products: React.FC<Props> = (props) => {
   const renderList: ProductsData[] = useSelector(
     (state: RootState) => state.list.sortedList
   );
-
+  //render skeleton layout when pending
   if (status === "pending") {
     return (
       <Grid container spacing={{ xs: 2, md: 3 }} textAlign="center">

@@ -57,7 +57,7 @@ const useHttp = (requestFunction: any, startWithPending = false) => {
       } catch (error: any) {
         dispatch({
           type: "ERROR",
-          errorMessage: error.message || "Products couldn't load!",
+          errorMessage: error.message || "Products could not load!",
         });
       }
     },

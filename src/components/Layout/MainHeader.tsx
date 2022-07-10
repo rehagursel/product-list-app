@@ -7,7 +7,7 @@ const Mainheader: React.FC = () => {
       <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            MyStore
+            MyStoreApp
           </Typography>
           <Cart />
         </Toolbar>
