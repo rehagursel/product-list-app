@@ -38,6 +38,6 @@ npm start
 http://localhost:3000
 ```
 
-![demo-store](https://res.cloudinary.com/di3ejxszt/image/upload/v1657300265/Portfolio/react-typescript-store-project/Screen_Shot_2022-07-08_at_20.09.29_t1etwc.png)
+![demo-store](https://res.cloudinary.com/di3ejxszt/image/upload/v1657455475/Portfolio/react-typescript-store-project/Screen_Shot_2022-07-10_at_15.17.33_qvsloc.png)
 
 ![demo-store](https://res.cloudinary.com/di3ejxszt/image/upload/v1657300254/Portfolio/react-typescript-store-project/Screen_Shot_2022-07-08_at_20.09.52_qn0cns.png)
