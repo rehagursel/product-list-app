@@ -14,10 +14,11 @@ import {
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [sortParam, setSortParam] = useState<string>("");
   const dispatch = useDispatch();
 
   const sortChangeHandler = (event: SelectChangeEvent) => {
-    dispatch(listActions.sortListItems(event.target.value));
+    setSortParam(event.target.value);
   };
 
   const queryChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +31,10 @@ const SearchBar = () => {
     }, 1000);
     return () => clearTimeout(timer);
   }, [searchQuery, dispatch]);
+
+  useEffect(() => {
+    dispatch(listActions.sortListItems(sortParam));
+  }, [sortParam, dispatch]);
 
   return (
     <Box
@@ -77,6 +82,7 @@ const SearchBar = () => {
             labelId="select-label"
             id="select"
             label="Sort"
+            value={sortParam}
             onChange={sortChangeHandler}
           >
             <MenuItem value="DEFAULT">Default</MenuItem>

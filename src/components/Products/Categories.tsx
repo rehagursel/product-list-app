@@ -37,14 +37,15 @@ const Categories = () => {
 
   //chose list of products to create categoriesList
   let productsListForCategoryList;
-  let isCheckBoxDisabled = false
+  let isCheckBoxDisabled = false;
   if (isQuerySearched) {
     productsListForCategoryList = productsListFromSortedList;
-    isCheckBoxDisabled = productsListForCategoryList.length === 0 ? true : false;
-
+    isCheckBoxDisabled =
+      productsListForCategoryList.length === 0 ? true : false;
   } else {
     productsListForCategoryList = productsListFromMainList;
-    isCheckBoxDisabled = productsListForCategoryList.length === 0 ? true : false;
+    isCheckBoxDisabled =
+      productsListForCategoryList.length === 0 ? true : false;
   }
 
   useEffect(() => {
@@ -120,13 +121,13 @@ const Categories = () => {
                 label={categoryItem.category}
                 sx={{ width: "100%" }}
               />
-              <Typography>
+              <Box>
                 (
-                <Box display="inline" color="primary.main">
+                <Typography display="inline" color="primary.main">
                   {categoryItem.amount}
-                </Box>
+                </Typography>
                 )
-              </Typography>
+              </Box>
             </Box>
           ))}
         </Select>
