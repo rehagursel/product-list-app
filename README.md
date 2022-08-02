@@ -6,9 +6,9 @@ Demo Product Store App (React-TypeScript)
 
 - React
 - TypeScript
-- CSS (Material UI)
-- Redux Toolkit
-- Restful API
+- CSS(Material UI)
+- Redux
+
 
 ## Requirements
 
