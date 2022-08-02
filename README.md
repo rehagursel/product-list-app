@@ -1,6 +1,6 @@
 # Store-App
 
-Demo Product Store App (React-TS)
+Demo Product Store App (React-TypeScript)
 
 ## Technologies
 
